@@ -155,7 +155,6 @@ basket.require
 			//Get Data
 			function getGrid(GridTab)
 			{
-			window.csv ="js/results.js";
 				var datafolder = $('#DateRange').find(":selected").val();
 
 				switch (GridTab)
@@ -235,7 +234,7 @@ basket.require
 				promise.done(function(data)
 				{
 					var pack = null;
-					var basic = 0
+					var basic = 0;
 					var cinema = 0;
 					var SandC = 0;
 					var sport = 0;
@@ -448,17 +447,6 @@ basket.require
 				{
 					getDiscount(table, tableNm, NumRow);
 				}
-				else
-				{
-					//If deleting an existing row
-					var row= this.parentNode.parentNode;
-					table.deleteRow(row.rowIndex);
-					console.log ("Delete row from table:"+tableNm);
-
-					UpdateGrid(tableNm);
-					//set the grand total
-					console.log("Remove Discount from "+tableNm);
-				}
 				//Clear input boxes
 				$("#"+tableNm+" input").val('');
 			});
@@ -489,26 +477,6 @@ basket.require
 
 			});
 
-			//on changing a price show/hide the buying grids
-			function ShowTitles()
-			{
-				$( ".buyingGrid" ).each(function(e)
-				{
-					 var tbl= $(this).prop("id");
-					 var tblRw = "#"+tbl+" tbody tr";
-
-					 if( $(tblRw).length)
-					   {
-							 $("#"+tbl).show();
-							 console.log ("Showing "+tblRw);
-						 }
-					 else
-					 {
-					 	 $("#"+tbl).hide();
-						 console.log ("hiding "+tblRw);
-					 }
-				});
-			}
 
 			//on changing region update the files etc.
 			$(".UKROI").change(function()
@@ -819,7 +787,6 @@ basket.require
 				}
 
 				console.log("Update Totals - "+Tabtype);
-				ShowTitles();
 			}
 
 			$( document ).ready(function(){
