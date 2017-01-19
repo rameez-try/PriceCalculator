@@ -242,7 +242,8 @@ basket.require
 					
 					{
 						$.each(data, function(i, item) 
-						{
+						{	
+							//console.log("in each");
 							pack = item[5];
 							basic = item[6];
 							cinema = item[7];
@@ -264,7 +265,7 @@ basket.require
 	
 		function populateGrid(pack, basic, cinema, SandC, sport) 
 		{
-			console.log("inside populateGrid");
+			//console.log("inside populateGrid");
 			var tableRow = 0;
 			var tblName = "";
 			var GridType = 1;
