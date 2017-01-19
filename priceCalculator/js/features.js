@@ -174,42 +174,42 @@ basket.require
 								 Cust="ExistingCust";
 						}
 
-						csv="js/results.js";
+						csv="../getData.php";
 						var grid="BoxType";
 						var displayRow ="show";
 						break;
 					case 'B':
 						console.log ("Channel Price grid");
 						//AdditionalPrices
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="TVAdditionalSubsType";
 						displayRow ="hidden";
 						break;
 					case 'C':
 						//Other Prices
 						console.log ("Broadband Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="BroadbandType";
 						displayRow ="hidden";
 						break;
 					case 'D':
 						//Other Prices
 						console.log ("Talk Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="TalkType";
 						displayRow ="hidden";
 						break;
 					case 'E':
 						//Other Prices
 						console.log ("Equipment Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="EquipBoxType";
 						displayRow ="hidden";
 						break;
 					case 'F':
 						//AdditionalPrices
 						console.log ("Other Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="AdditionalType";
 						displayRow ="hidden";
 						break;
