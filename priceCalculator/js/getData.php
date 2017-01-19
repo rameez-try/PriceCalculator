@@ -14,6 +14,7 @@
 	
 	foreach($tables as $table ){
 	
+	//testing git here 
 		
 		$sql = get_fields($tool, $table);
 		$results = $conn->getResults($sql);
