@@ -155,7 +155,6 @@ basket.require
 			//Get Data
 			function getGrid(GridTab)
 			{
-			window.csv ="js/results.js";
 				var datafolder = $('#DateRange').find(":selected").val();
 
 				switch (GridTab)
@@ -174,42 +173,42 @@ basket.require
 								 Cust="ExistingCust";
 						}
 
-						csv="js/results.js";
+						csv="../getData.php";
 						var grid="BoxType";
 						var displayRow ="show";
 						break;
 					case 'B':
 						console.log ("Channel Price grid");
 						//AdditionalPrices
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="TVAdditionalSubsType";
 						displayRow ="hidden";
 						break;
 					case 'C':
 						//Other Prices
 						console.log ("Broadband Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="BroadbandType";
 						displayRow ="hidden";
 						break;
 					case 'D':
 						//Other Prices
 						console.log ("Talk Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="TalkType";
 						displayRow ="hidden";
 						break;
 					case 'E':
 						//Other Prices
 						console.log ("Equipment Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="EquipBoxType";
 						displayRow ="hidden";
 						break;
 					case 'F':
 						//AdditionalPrices
 						console.log ("Other Price grid");
-						csv="js/results.js";
+						csv="../getData.php";
 						grid="AdditionalType";
 						displayRow ="hidden";
 						break;
@@ -235,22 +234,35 @@ basket.require
 				promise.done(function(data)
 				{
 					var pack = null;
-					var basic = 0
+					var basic = 0;
 					var cinema = 0;
 					var SandC = 0;
 					var sport = 0;
+					//var arr = [];
 					
 					{
 						$.each(data, function(i, item) 
-						{
+						{	
+							//console.log("in each");
 							pack = item[5];
 							basic = item[6];
 							cinema = item[7];
 							SandC = item[8];
 							sport = item[9];
 							populateGrid(pack, basic, cinema, SandC, sport);
+							
+							/*arr.push(item[5]);
+							arr.push(item[6]);
+							arr.push(item[7]);
+							arr.push(item[8]);
+							arr.push(item[9]);*/
 						});
-						
+						/*var i = 0;
+						while (i < arr.length) {
+						console.log(arr[i]);
+						i++;
+						}*/
+						//populateGrid(arr);
 						
 					}
 				});
@@ -264,7 +276,7 @@ basket.require
 	
 		function populateGrid(pack, basic, cinema, SandC, sport) 
 		{
-			console.log("inside populateGrid");
+			//console.log("inside populateGrid");
 			var tableRow = 0;
 			var tblName = "";
 			var GridType = 1;
@@ -447,17 +459,6 @@ basket.require
 				{
 					getDiscount(table, tableNm, NumRow);
 				}
-				else
-				{
-					//If deleting an existing row
-					var row= this.parentNode.parentNode;
-					table.deleteRow(row.rowIndex);
-					console.log ("Delete row from table:"+tableNm);
-
-					UpdateGrid(tableNm);
-					//set the grand total
-					console.log("Remove Discount from "+tableNm);
-				}
 				//Clear input boxes
 				$("#"+tableNm+" input").val('');
 			});
@@ -488,26 +489,6 @@ basket.require
 
 			});
 
-			//on changing a price show/hide the buying grids
-			function ShowTitles()
-			{
-				$( ".buyingGrid" ).each(function(e)
-				{
-					 var tbl= $(this).prop("id");
-					 var tblRw = "#"+tbl+" tbody tr";
-
-					 if( $(tblRw).length)
-					   {
-							 $("#"+tbl).show();
-							 console.log ("Showing "+tblRw);
-						 }
-					 else
-					 {
-					 	 $("#"+tbl).hide();
-						 console.log ("hiding "+tblRw);
-					 }
-				});
-			}
 
 			//on changing region update the files etc.
 			$(".UKROI").change(function()
@@ -818,7 +799,6 @@ basket.require
 				}
 
 				console.log("Update Totals - "+Tabtype);
-				ShowTitles();
 			}
 
 			$( document ).ready(function(){
