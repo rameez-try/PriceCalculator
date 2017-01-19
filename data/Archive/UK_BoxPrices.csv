@@ -1,0 +1,11 @@
+Region,Type,Box Type,Customer type ,Q Multiroom,Install Fee,Additional TV Fee (minibox)
+UK,1,SkyQ 1TB,NEW,NO,49,0
+UK,1,SkyQ 1TB with minibox,NEW,YES,49,99
+UK,1,SkyQ 1TB,NEW,YES,49,0
+UK,1,SkyQ 2TB,NEW,NO,99,0
+UK,1,SkyQ 2TB with minibox,NEW,YES,99,99
+UK,1,SkyQ 2TB,NEW,YES,99,0
+UK,1,MINIBOX,EXISTING,YES,49,0
+UK,1,MINIBOX,EXISTING,YES,49,99
+UK,1,Sky+HD,EXISTING,YES,99,0
+UK,1,Sky+HD,EXISTING,YES,99,99

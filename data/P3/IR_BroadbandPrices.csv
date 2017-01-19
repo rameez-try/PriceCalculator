@@ -1,0 +1,13 @@
+Region,Type,SubscriptionName,SubscriptionConditn,SubscriptionPrice
+IR,1,Sky Broadband Unlimited - New customers,Sky Subscribers,15
+IR,1,Sky Broadband Unlimited - Legacy customers,Sky Subscribers,10
+IR,1,Sky Connect Lite - New customers,Sky Subscribers,15
+IR,1,Sky Connect Lite - Legacy customers,Sky Subscribers,10
+IR,1,Sky Connect Unlimited - New customers,Sky Subscribers,25
+IR,1,Sky Connect Unlimited - Legacy customers,Sky Subscribers,20
+IR,1,Sky Broadband Lite - New customers,Sky Subscribers,5
+IR,1,Sky Broadband Lite - Legacy customers,Sky Subscribers,0
+IR,1,Sky Fibre - New customers,Sky Subscribers,15
+IR,1,Sky Fibre - Legacy customers,Sky Subscribers,10
+IR,1,Sky Fibre Unlimited - New customers,Sky Subscribers,25
+IR,1,Sky Fibre Unlimited - Legacy customers,Sky Subscribers,20

@@ -1,0 +1,32 @@
+code I tried 
+
+*foreach ($array as $value) {
+	if ($value == "Archive") {
+	unset($array($value));
+	}
+}
+print_r($array);
+
+//$dir = "data/P1";
+/*
+$array = array();
+if (is_dir($dir)){
+  if ($dh = opendir($dir)){
+    while (($file = readdir($dh)) !== false){
+	  $array[] = $file;
+    }
+    closedir($dh);
+  }
+}
+else {
+	echo "not a directory";
+	}
+
+$otherArray = array(".", "..", "Archive");
+$result = array_diff($array, $otherArray);
+print_r($result);
+
+
+foreach($result as $values) {
+	echo $values."<br>";
+}
