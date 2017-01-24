@@ -251,19 +251,7 @@ basket.require
 							sport = item[9];
 							populateGrid(pack, basic, cinema, SandC, sport);
 							
-							/*arr.push(item[5]);
-							arr.push(item[6]);
-							arr.push(item[7]);
-							arr.push(item[8]);
-							arr.push(item[9]);*/
 						});
-						/*var i = 0;
-						while (i < arr.length) {
-						console.log(arr[i]);
-						i++;
-						}*/
-						//populateGrid(arr);
-						
 					}
 				});
 
