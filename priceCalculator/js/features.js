@@ -214,9 +214,10 @@ basket.require
 						break;
 				}
 				
-				connection();
+				
 
 			}
+			connection();
 			function connection()
 			{
 					console.log("inside connection");
