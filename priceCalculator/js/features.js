@@ -532,12 +532,13 @@ basket.require
 				helpText();
 
 				//update prices
-				getGrid('A'); //Box Type
+				/*getGrid('A'); //Box Type
 				getGrid('B'); //Al a Carte
 				getGrid('C'); //Broadband
 				getGrid('D'); //Talk
 				getGrid('E'); //SkyQ Boxes
 				getGrid('F'); //Multiroom etc.
+				*/
 			});
 
 
