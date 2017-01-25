@@ -26,7 +26,8 @@ class KeyedArrayIterator extends IteratorIterator
     }
 }
 $directories = array("data/p1", "data/p2");
-$f = 'UK_EntPrices.csv';
+//$f = 'UK_EntPrices.csv';
+$f = 'UK_TalkPrices.csv';
 $files = $f;
 $filename = str_replace('.csv', '', $files);
 $filenames = array($files);
