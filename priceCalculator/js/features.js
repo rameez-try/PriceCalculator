@@ -222,10 +222,10 @@ basket.require
 			{
 					console.log("inside connection");
 					promise = $.ajax({
-					url: "../getData.php",
+					url: "../getData.php?tbl=data/p1_UK_TalkPrices",
 					type:"POST",
 					dataType: "json",
-					data: (tbl = "data/p1_UK_TalkPrices"),
+					//data: (tbl = "data/p1_UK_TalkPrices"),
 					cache:false
 				});
 				console.log ("Price grid - Loaded");
