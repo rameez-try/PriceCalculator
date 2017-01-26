@@ -222,9 +222,10 @@ basket.require
 			{
 					console.log("inside connection");
 					promise = $.ajax({
-					type:"GET",
-					dataType:"json",
 					url: "../getData.php",
+					type:"POST",
+					dataType: "json",
+					data: (tbl = "data/p1_UK_TalkPrices"),
 					cache:false
 				});
 				console.log ("Price grid - Loaded");
@@ -239,7 +240,6 @@ basket.require
 					var cinema = 0;
 					var SandC = 0;
 					var sport = 0;
-					//var arr = [];
 					
 					{
 						$.each(data, function(i, item) 

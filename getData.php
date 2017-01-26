@@ -7,8 +7,8 @@
 	
 	$tns = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=".$xml->HOST.")(PORT=".$xml->PORT."))(CONNECT_DATA=(SID=".$xml->SID.")))";
 	$conn->open($tns, $xml->USERID, $xml->PASSWORD);
-
-
+	
+	$tbl = 'new variable';
 	$tool = "PriceCalculator";
 	$tables = array("data/p1_UK_TalkPrices");
 	
