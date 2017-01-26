@@ -10,7 +10,7 @@
 
 
 	$tool = "PriceCalculator";
-	$tables = array("data\/p1_UK_TalkPrices");
+	$tables = array("data/p1_UK_TalkPrices");
 	
 	foreach($tables as $table ){
 	
