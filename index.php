@@ -26,8 +26,7 @@ class KeyedArrayIterator extends IteratorIterator
     }
 }
 $directories = array("data/p1", "data/p2");
-//$f = 'UK_EntPrices.csv';
-$f = 'UK_TalkPrices.csv';
+$f = 'UK_EntPrices.csv';
 $files = $f;
 $filename = str_replace('.csv', '', $files);
 $filenames = array($files);
@@ -52,11 +51,9 @@ $direc = get_keys($fullArray);
 	//Purge the tables of their current values
 	purge_tables($app);
 
-		//foreach($filenames as $filename){
 		
 			
 				//get the contents of the table
-				//$contents[] = $array[] = $directory."_".$filename;
 			
 		debug("fullArray",$fullArray);
 		foreach($fullArray as $filekey) {
@@ -66,8 +63,6 @@ $direc = get_keys($fullArray);
 			foreach($filekey as $na) {
 				debug("NA",$na);
 				
-				//foreach($na as $column_header) {
-				//debug("column header",$column_header);	
 					
 				//this level returns the column headers
 					$col = get_keys($na[0]);
@@ -76,8 +71,7 @@ $direc = get_keys($fullArray);
 					//$col is the column header
 					
 					
-					//foreach($column_header as $rows) {
-						//echo $rows.'<br>';
+
 						//$rows is the row content
 						$contents = array($direc[0]."_".$filenamekey[0]);
 						debug("contents",$contents);
@@ -98,17 +92,10 @@ $direc = get_keys($fullArray);
 						//now start creating rows
 						$table_rows = fill_table($conn, $table_entry, $keys, $na);
 						
-						//debug("Keys",$keys);
-						//debug("Rows",$rows);
-						
-					//}
-				
-				//}
 				
 			}
 		}
 				
-		//}
 
 
 	$conn->close();
@@ -139,7 +126,6 @@ function do_all($directories, $f, $files, $filename) {
 			$otherArray = array($filename=>$linearray);
 			$finalArray = array($dir=>$otherArray);
 		}
-		//print_r($finalArray);
 		return $finalArray;
 	}
 }
@@ -168,13 +154,11 @@ function remove_unwanted_array_elements($array, $dir) {
 		global $conn;
 		
 		$sql = "SELECT * FROM TOOLS_APPLICATION TA WHERE TA.TOOL_NAME = '$app'";
-		//echo $sql."<br />";
 		$results = $conn->getResults($sql);
 		$tool_id = get_col_values($results, 'TOOL_ID');
 		
 		if(count($tool_id)>0){	
 			$sql = "SELECT * FROM TOOLS_APPLICATION_TABLE TAT WHERE TAT.APPLICATION_ID IN (".implode(',', $tool_id).")";
-			//echo $sql;
 			$results = $conn->getResults($sql);
 			$tables = get_col_values($results, 'TABLE_ID');
 			
@@ -185,10 +169,7 @@ function remove_unwanted_array_elements($array, $dir) {
 			$sql = "SELECT * FROM TOOLS_APPLICATION_TABLE_FIELD TATF WHERE TATF.TABLE_ID IN (".implode(',', $tables).")";
 			$results = $conn->getResults($sql);
 			$field = get_col_values($results, 'FIELD_ID');
-			
-			//$sql = "SELECT * FROM TOOLS_APPLICATION_FIELD_VALUE TAFV WHERE TAFV.ROW_ID IN (".implode(',', $rows).")";
-			//$results = $conn->getResults($sql);
-			//$vals = get_col_values($results, 'VALUE_ID');
+
 			
 			
 			//now work backwards
@@ -205,7 +186,6 @@ function remove_unwanted_array_elements($array, $dir) {
 				$conn->execute($sql);
 			
 				$sql = "DELETE FROM TOOLS_APPLICATION_TABLE WHERE TABLE_ID IN (".implode(',',$tables).")";
-				//echo $sql;
 				$conn->execute($sql);
 			}
 			
@@ -233,7 +213,6 @@ function remove_unwanted_array_elements($array, $dir) {
 	}
 	
 	function fill_table($conn, $table, $keys, $contents){
-		//echo $table." : ".count($contents)."<br />";
 
 		
 		for($i=0;$i<count($contents);$i++){
@@ -252,7 +231,6 @@ function remove_unwanted_array_elements($array, $dir) {
 				$id = $result[0]['FIELD_ID'];
 				
 				$sql = "INSERT INTO TOOLS_APPLICATION_FIELD_VALUE (ROW_ID,FIELD_ID,FIELD_VALUE) VALUES ($currVal, $id,'".sql_safe($contents[$i][$key])."')";
-				//echo $sql."<br />";
 				$conn->execute($sql);
 			}
 		}
