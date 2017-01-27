@@ -7,10 +7,10 @@
 	
 	$tns = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=".$xml->HOST.")(PORT=".$xml->PORT."))(CONNECT_DATA=(SID=".$xml->SID.")))";
 	$conn->open($tns, $xml->USERID, $xml->PASSWORD);
-
-
+	
+	$tbl = $_GET['tbl'];
 	$tool = "PriceCalculator";
-	$tables = array("data/p1_UK_EntPrices");
+	$tables = array($tbl);
 	
 	foreach($tables as $table ){
 	

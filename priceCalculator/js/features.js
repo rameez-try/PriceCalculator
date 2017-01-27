@@ -173,58 +173,58 @@ basket.require
 								 Cust="ExistingCust";
 						}
 
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						var grid="BoxType";
 						var displayRow ="show";
 						break;
 					case 'B':
 						console.log ("Channel Price grid");
 						//AdditionalPrices
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						grid="TVAdditionalSubsType";
 						displayRow ="hidden";
 						break;
 					case 'C':
 						//Other Prices
 						console.log ("Broadband Price grid");
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						grid="BroadbandType";
 						displayRow ="hidden";
 						break;
 					case 'D':
 						//Other Prices
 						console.log ("Talk Price grid");
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						grid="TalkType";
 						displayRow ="hidden";
 						break;
 					case 'E':
 						//Other Prices
 						console.log ("Equipment Price grid");
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						grid="EquipBoxType";
 						displayRow ="hidden";
 						break;
 					case 'F':
 						//AdditionalPrices
 						console.log ("Other Price grid");
-						csv="../getData.php";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
 						grid="AdditionalType";
 						displayRow ="hidden";
 						break;
 				}
 				
 				
-
+			
 			}
 			connection();
 			function connection()
 			{
 					console.log("inside connection");
 					promise = $.ajax({
-					type:"GET",
-					dataType:"json",
-					url: "../getData.php",
+					url: csv,
+					type:"POST",
+					dataType: "json",
 					cache:false
 				});
 				console.log ("Price grid - Loaded");
@@ -239,7 +239,6 @@ basket.require
 					var cinema = 0;
 					var SandC = 0;
 					var sport = 0;
-					//var arr = [];
 					
 					{
 						$.each(data, function(i, item) 
