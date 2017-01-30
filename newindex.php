@@ -302,7 +302,7 @@ function remove_unwanted_array_elements($array, $dir) {
 		}
 	}
 $directories = array("data/p1", "data/p2");
-$f = 'UK_TalkPrices.csv';
+$f = $name;
 $files = $f;
 $filename = str_replace('.csv', '', $files);
 $filenames = array($files);
@@ -325,7 +325,7 @@ $direc = get_keys($fullArray);
 	$conn->open($tns, $xml->USERID, $xml->PASSWORD);
 	
 	//Purge the tables of their current values
-	purge_tables($app);
+	//purge_tables($app);
 
 		
 			

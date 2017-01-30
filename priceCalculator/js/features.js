@@ -173,42 +173,42 @@ basket.require
 								 Cust="ExistingCust";
 						}
 
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						var grid="BoxType";
 						var displayRow ="show";
 						break;
 					case 'B':
 						console.log ("Channel Price grid");
 						//AdditionalPrices
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						grid="TVAdditionalSubsType";
 						displayRow ="hidden";
 						break;
 					case 'C':
 						//Other Prices
 						console.log ("Broadband Price grid");
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						grid="BroadbandType";
 						displayRow ="hidden";
 						break;
 					case 'D':
 						//Other Prices
 						console.log ("Talk Price grid");
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						grid="TalkType";
 						displayRow ="hidden";
 						break;
 					case 'E':
 						//Other Prices
 						console.log ("Equipment Price grid");
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						grid="EquipBoxType";
 						displayRow ="hidden";
 						break;
 					case 'F':
 						//AdditionalPrices
 						console.log ("Other Price grid");
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices";
+						csv="../getData.php?tbl=data/p1_UK_EntPrices";
 						grid="AdditionalType";
 						displayRow ="hidden";
 						break;
