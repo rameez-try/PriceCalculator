@@ -180,28 +180,28 @@ basket.require
 					case 'B':
 						console.log ("Channel Price grid");
 						//AdditionalPrices
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
+						csv="../getData.php?tbl=data/p1_UK_ChannelPrices.csv";
 						grid="TVAdditionalSubsType";
 						displayRow ="hidden";
 						break;
 					case 'C':
 						//Other Prices
 						console.log ("Broadband Price grid");
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
+						csv="../getData.php?tbl=data/p1_UK_BroadbandPrices.csv";
 						grid="BroadbandType";
 						displayRow ="hidden";
 						break;
 					case 'D':
 						//Other Prices
 						console.log ("Talk Price grid");
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
+						csv="../getData.php?tbl=data/p1_UK_TalkPrices.csv";
 						grid="TalkType";
 						displayRow ="hidden";
 						break;
 					case 'E':
 						//Other Prices
 						console.log ("Equipment Price grid");
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
+						csv="../getData.php?tbl=data/p1_UK_AdditionalPrices.csv";
 						grid="EquipBoxType";
 						displayRow ="hidden";
 						break;
