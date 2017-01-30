@@ -9,8 +9,8 @@
 
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
+$nameErr = "";
+$name = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -302,7 +302,7 @@ function remove_unwanted_array_elements($array, $dir) {
 		}
 	}
 $directories = array("data/p1", "data/p2");
-$f = 'UK_TalkPrices.csv';
+$f = $name;
 $files = $f;
 $filename = str_replace('.csv', '', $files);
 $filenames = array($files);
