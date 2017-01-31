@@ -85,6 +85,7 @@ basket.require
       $('.GridSelect').change(function ()
 			{
 				console.log ("Price Grid Change (select box)");
+				connection();
 				$(".TVAdditionalSubsType1_PriceGrid tr").hide();
 				$(".TalkType1_PriceGrid tr").hide();
 				$(".EquipBoxType1_PriceGrid tr").hide();
