@@ -1,3 +1,18 @@
+function myFunction() {
+	document.getElementById("demo").innerHTML = "Hello JavaScript!";
+	}
+function broadbandFunction() {
+		console.log("this is in the broadband funciton");
+	}
+function report(period){
+	if(period=="") {
+		console.log("empty");
+		}
+	else {
+		console.log("fibre selected");
+		}
+	}
+		
 var cacheVer = 'mps_v1';
 basket.require
 	(
@@ -21,6 +36,8 @@ basket.require
 	window.discount = 0;
 	window.discountType = null;
 	window.option = null;
+	window.csv = "../getData.php?tbl=data/p1_UK_EntPrices";
+	
 
 			function getUrlPriceRange()
 			{
@@ -81,10 +98,16 @@ basket.require
 				window.location.reload();
 				console.log ("Reset calculations");
 			});
+			
+			$("#fibre").click(function()
+			{
+				console.log("this is fibre");
+			});
 
       $('.GridSelect').change(function ()
 			{
 				console.log ("Price Grid Change (select box)");
+				csv = "../getData.php?tbl=data/p1_UK_TalkPrices.csv";
 				connection();
 				$(".TVAdditionalSubsType1_PriceGrid tr").hide();
 				$(".TalkType1_PriceGrid tr").hide();
@@ -152,7 +175,7 @@ basket.require
 			$('input [type="number"]').keyup(function () {
 				this.value = this.value.replace(/[^0-9\.]/g,'');
 			});
-
+	
 			//Get Data
 			function getGrid(GridTab)
 			{
@@ -815,3 +838,5 @@ basket.require
 			// There was an error fetching the script
 			console.log(error);
 		};
+		
+	
