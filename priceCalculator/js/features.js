@@ -1,18 +1,3 @@
-function myFunction() {
-	document.getElementById("demo").innerHTML = "Hello JavaScript!";
-	}
-function broadbandFunction() {
-		console.log("this is in the broadband funciton");
-	}
-function report(period){
-	if(period=="") {
-		console.log("empty");
-		}
-	else {
-		console.log("fibre selected");
-		}
-	}
-		
 var cacheVer = 'mps_v1';
 basket.require
 	(
@@ -79,7 +64,7 @@ basket.require
 			});
 
 			//hide the installation costs if it's a legacy pricerange selection
-			if($('#DateRange option:selected').val().toUpperCase()!="P1")
+			/*if($('#DateRange option:selected').val().toUpperCase()!="P1")
 			{
 				$(".Equip_New").hide();
 				$(".OneOffTab").hide();
@@ -91,33 +76,28 @@ basket.require
 				$(".OneOffTab").show();
 				console.log ("One Off prices available");
 			}
-
+	*/
 			//clear the calculations
 			$("#reset").click(function()
 			{
 				window.location.reload();
 				console.log ("Reset calculations");
 			});
-			
-			$("#fibre").click(function()
-			{
-				console.log("this is fibre");
-			});
 
-      $('.GridSelect').change(function ()
+      /*$('.GridSelect').change(function ()
 			{
 				console.log ("Price Grid Change (select box)");
-				csv = "../getData.php?tbl=data/p1_UK_TalkPrices.csv";
-				connection();
-				$(".TVAdditionalSubsType1_PriceGrid tr").hide();
-				$(".TalkType1_PriceGrid tr").hide();
-				$(".EquipBoxType1_PriceGrid tr").hide();
-				$(".AdditionalType1_PriceGrid tr").hide();
+				//csv = "../getData.php?tbl=data/p1_UK_TalkPrices.csv";
+				//connection();
+				//$(".TVAdditionalSubsType1_PriceGrid tr").hide();
+				//$(".TalkType1_PriceGrid tr").hide();
+				//$(".EquipBoxType1_PriceGrid tr").hide();
+				//$(".AdditionalType1_PriceGrid tr").hide();
 
-				Trow=$("#"+$(this).attr("id")+" option:selected" ).text();
-				$(Trow).show();
+				//Trow=$("#"+$(this).attr("id")+" option:selected" ).text();
+				//$(Trow).show();
 			});
-
+	*/
 			//Currency Type
 			var Rgn ="";
 			var Cust="";
@@ -145,7 +125,7 @@ basket.require
 			}
 
 			//Customer switch
-			$("#CustomerType").change(function()
+			/*$("#CustomerType").change(function()
 			{
 				//Clear the Entertainment Prices from the grid
 				$(".EPriceGrd  tbody>tr").remove();
@@ -162,14 +142,16 @@ basket.require
 					updateTotal(0,1);
 					console.log("Customer Switched");
 				});
+				*/
 
 			//Get initial Grids
-			getGrid('A'); //Box Type
+			/*getGrid('A'); //Box Type
 			getGrid('B'); //Al a Carte & Other TV
 			getGrid('C'); //Broadband
 			getGrid('D'); //Talk
 			getGrid('E'); //SkyQ Boxes
 			getGrid('F'); //Multiroom etc.
+			*/
 
 			//on entering a discount amount, make sure it's a number value
 			$('input [type="number"]').keyup(function () {
@@ -177,7 +159,7 @@ basket.require
 			});
 	
 			//Get Data
-			function getGrid(GridTab)
+			/*function getGrid(GridTab)
 			{
 				var datafolder = $('#DateRange').find(":selected").val();
 
@@ -240,7 +222,7 @@ basket.require
 				
 				
 			
-			}
+			}*/
 			connection();
 			function connection()
 			{
@@ -299,7 +281,7 @@ basket.require
 			var cell = 0;
 			
 			row += "<tr id='"+grid+"_TRow"+rowcount+"' class='"+displayRow+"'>";
-			tblName=grid+GridType+"_PriceGrid";
+			tblName="BroadbandType1_PriceGrid";
 			
 			var npack = pack;
 			var nbasic = basic;
@@ -474,6 +456,7 @@ basket.require
 				//Clear input boxes
 				$("#"+tableNm+" input").val('');
 			});
+			
 
 			//Onclick of the Pricing Grid select the price and put it in the total
 			$(document.body).on("click touchstart", ".highlight", function ()
@@ -634,6 +617,7 @@ basket.require
 				}
 
 				console.log ("price grid visibility change");
+				connection();
 			});
 
 			//On click of the add subscript button add an Additional / Other Package
