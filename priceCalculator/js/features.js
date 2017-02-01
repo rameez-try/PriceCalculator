@@ -226,6 +226,9 @@ basket.require
 			connection();
 			function connection()
 			{
+			//this funciton uses an ajax post method to connect to the required data. 
+			//It uses the variable csv which is declared earlier as the url, this calls a php file script and passes the table name of the data that we want to use. 
+			//This is the table name within an oracle database. 
 					console.log("inside connection");
 					promise = $.ajax({
 					url: csv,
@@ -249,12 +252,14 @@ basket.require
 					{
 						$.each(data, function(i, item) 
 						{	
-							//console.log("in each");
+							//this iterates through each array in the data and for each one it sets the element equal to its corresponding variale e.g. pack is set equal to the 5th element. 
+							//the data in the table is made up of several arrays. 
 							pack = item[5];
 							basic = item[6];
 							cinema = item[7];
 							SandC = item[8];
 							sport = item[9];
+							//it then calls the populateGrid function passing these variables as parameters. 
 							populateGrid(pack, basic, cinema, SandC, sport);
 							
 						});
@@ -279,9 +284,18 @@ basket.require
 			var grid = "BoxType";
 			var displayRow = "show";
 			var cell = 0;
-			
+			//This takes the table which is made in the .html file and populates it by adding to the table rows. 
+			//There are different tables made in the .html file and this chooses the correct one based on the csv passed as the url. 
+			//The reason for this is the csv is set based on what data is needed and that corresponds to which table needs to be populated too.
+			//e.g. we may have to populate the broadband prices grid 
 			row += "<tr id='"+grid+"_TRow"+rowcount+"' class='"+displayRow+"'>";
-			tblName="BroadbandType1_PriceGrid";
+			if(csv == "../getData.php?tbl=data/p1_UK_EntPrices") {
+				tblName = "BoxType1_PriceGrid";
+				}
+			else {
+				tblName="BroadbandType1_PriceGrid";
+				}
+			
 			
 			var npack = pack;
 			var nbasic = basic;
@@ -464,7 +478,7 @@ basket.require
 				var tableNm = $(this).closest('table').attr('id');
 				var table = document.getElementById(tableNm);
 
-				if(tableNm=="BoxType1_PriceGrid" ||tableNm=="BoxType2_PriceGrid" ||tableNm=="BoxType3_PriceGrid" )
+				if(tableNm=="BoxType1_PriceGrid" ||tableNm=="BoxType2_PriceGrid" ||tableNm=="BoxType3_PriceGrid" || tableNm=="BroadbandType1_PriceGrid" )
 				{
 					$(".highlight").css('background-color', 'white');
 					$(".highlight").removeClass('highlightActive');
