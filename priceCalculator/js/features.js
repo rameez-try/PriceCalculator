@@ -303,6 +303,7 @@ basket.require
 			var nsport = sport;
 			var nSandC = SandC;
 			var disc = 0;
+			//These are the variables that will be manipulated for discount 
 			
 			
 			if (discount !== 0)
@@ -314,30 +315,31 @@ basket.require
 			{
 				if (discountType == "percent")
 				{
+				//this is based on what has been selected in the discount gird, so in this case it is a percentage discount for basic only.
 					if(option == "C0")
 					{
 						nbasic = (basic - (basic*disc)).toFixed(2);
 						console.log(nbasic);
 					}
-					
+					//percentage cinema only 
 					if(option == "C4")
 					{
 						ncinema = (cinema - (cinema*disc)).toFixed(2);
 						console.log(ncinema);
 					}
-					
+					//percentage sport only
 					if(option == "C5")
 					{
 						nsport = (sport - (sport*disc)).toFixed(2);
 						console.log(nsport);
 					}
-					
+					//percentage sports and cinema
 					if(option == "C6")
 					{
 						nSandC = (SandC-(SandC*discount)).toFixed(2);
 						console.log(nSandC);
 					}
-					
+					//percentage all
 					if(option == "CX")
 					{
 						nbasic = (basic - (basic*disc)).toFixed(2);
@@ -349,7 +351,7 @@ basket.require
 					
 				}
 			
-			
+				//This is the same however this time the percetnage selected is a monetary discount rather than a percentage discount.
 				if (discountType == "number")
 				{
 					if(option == "C0")
@@ -389,7 +391,7 @@ basket.require
 			
 			
 			
-	
+		//adding these variables to the rows in the table
 			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price'>" + pack +"</span><span class='originalprice hidden'></span></td>";
 			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+curr+"'>" + nbasic; +"</span><span class='originalprice hidden'></span></td>";
 			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+curr+"'>" + ncinema; +"</span><span class='originalprice hidden'></span></td>";
@@ -409,7 +411,7 @@ basket.require
 			
 		function deleteGrid()
 		{
-		
+		//this function is needed when a discount is added to clear the old prices and then add the new discounted prices.
 			$("#BoxTypeRows1 table tbody").html("");
 			$("#BoxType1_PriceGrid table tbody").html("");
 			$("#BoxTypeRows2 table tbody").html("");
