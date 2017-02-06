@@ -62,11 +62,16 @@ basket.require
 //				console.log("datafolder : "+datafolder)
 				ChangeDateRange(datafolder);
 			});
-
+			
+			$("#tv").click(function()
+			{
+				console.log("moved to tv");
+				csv = "../getData.php?tbl=data/p1_UK_EntPrices";
+			});
 			$("#broadband").click(function()
 			{
 				console.log("moved to broadband");
-				csv = "../getData.php?tbl=data/p1_UK_BroadbandPrices";
+				csv = "../getData.php?tbl=data/p1_data/P1/UK_BroadbandPrices";
 			});
 			$("#talk").click(function()
 			{
@@ -76,7 +81,7 @@ basket.require
 			$("#other").click(function()
 			{
 				console.log("moved to other");
-				csv = "../getData.php?tbl=data/p1_UK_BoxPrices";
+				csv = "../getData.php?tbl=data/p1_data/P1/UK_BoxPrices";
 			});
 			//clear the calculations
 			$("#reset").click(function()
