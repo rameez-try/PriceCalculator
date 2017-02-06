@@ -194,8 +194,14 @@ basket.require
 			if(csv == "../getData.php?tbl=data/p1_UK_EntPrices") {
 				tblName = "BoxType1_PriceGrid";
 				}
-			else {
+			if(csv == "../getData.php?tbl=data/p1_data/P1/UK_BroadbandPrices") {
 				tblName="BroadbandType1_PriceGrid";
+				}
+			if(csv == "../getData.php?tbl=data/p1_UK_TalkPrices") {
+				tblName="TalkType1_PriceGrid";
+				}
+			else {
+				tblName = "BoxType1_PriceGrid";
 				}
 			
 			
