@@ -63,20 +63,21 @@ basket.require
 				ChangeDateRange(datafolder);
 			});
 
-			//hide the installation costs if it's a legacy pricerange selection
-			/*if($('#DateRange option:selected').val().toUpperCase()!="P1")
+			$("#broadband").click(function()
 			{
-				$(".Equip_New").hide();
-				$(".OneOffTab").hide();
-				console.log ("One Off prices hidden");
-			}
-			else
+				console.log("moved to broadband");
+				csv = "../getData.php?tbl=data/p1_UK_BroadbandPrices";
+			});
+			$("#talk").click(function()
 			{
-				$(".Equip_New").show();
-				$(".OneOffTab").show();
-				console.log ("One Off prices available");
-			}
-	*/
+				console.log("moved to talk");
+				csv = "../getData.php?tbl=data/p1_UK_TalkPrices";
+			});
+			$("#other").click(function()
+			{
+				console.log("moved to other");
+				csv = "../getData.php?tbl=data/p1_UK_BoxPrices";
+			});
 			//clear the calculations
 			$("#reset").click(function()
 			{
@@ -84,20 +85,7 @@ basket.require
 				console.log ("Reset calculations");
 			});
 
-      /*$('.GridSelect').change(function ()
-			{
-				console.log ("Price Grid Change (select box)");
-				//csv = "../getData.php?tbl=data/p1_UK_TalkPrices.csv";
-				//connection();
-				//$(".TVAdditionalSubsType1_PriceGrid tr").hide();
-				//$(".TalkType1_PriceGrid tr").hide();
-				//$(".EquipBoxType1_PriceGrid tr").hide();
-				//$(".AdditionalType1_PriceGrid tr").hide();
-
-				//Trow=$("#"+$(this).attr("id")+" option:selected" ).text();
-				//$(Trow).show();
-			});
-	*/
+    
 			//Currency Type
 			var Rgn ="";
 			var Cust="";
@@ -124,105 +112,14 @@ basket.require
 				console.log ("UK Pricing");
 			}
 
-			//Customer switch
-			/*$("#CustomerType").change(function()
-			{
-				//Clear the Entertainment Prices from the grid
-				$(".EPriceGrd  tbody>tr").remove();
-
-				//load the applicable entertainment grid
-				getGrid('A');
-
-				  //reset Entertainment Pack Discounts - changing type might affect values
-					$("#BoxType_Discounts").find("tr:gt(1)").remove();
-
-					//Reset Pricing selection - nothing is selected by default
-					var TVCostFix =parseFloat($("#TVAdditionalSubsTypeTab").text()).toFixed(2);
-					$("#TotalTab1").text(parseFloat(TVCostFix).toFixed(2));
-					updateTotal(0,1);
-					console.log("Customer Switched");
-				});
-				*/
-
-			//Get initial Grids
-			/*getGrid('A'); //Box Type
-			getGrid('B'); //Al a Carte & Other TV
-			getGrid('C'); //Broadband
-			getGrid('D'); //Talk
-			getGrid('E'); //SkyQ Boxes
-			getGrid('F'); //Multiroom etc.
-			*/
+			
 
 			//on entering a discount amount, make sure it's a number value
 			$('input [type="number"]').keyup(function () {
 				this.value = this.value.replace(/[^0-9\.]/g,'');
 			});
 	
-			//Get Data
-			/*function getGrid(GridTab)
-			{
-				var datafolder = $('#DateRange').find(":selected").val();
-
-				switch (GridTab)
-				{
-					case 'A':
-						console.log ("Entertainment Price Grid");
-						//Entertainment
-
-						//new & Existing customers have different pricing on this grid - determine customer type
-						if($("#CustomerType").val()=="A")
-						{
-									Cust="NewCust";
-						}
-						else
-						{
-								 Cust="ExistingCust";
-						}
-
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
-						var grid="BoxType";
-						var displayRow ="show";
-						break;
-					case 'B':
-						console.log ("Channel Price grid");
-						//AdditionalPrices
-						csv="../getData.php?tbl=data/p1_UK_ChannelPrices.csv";
-						grid="TVAdditionalSubsType";
-						displayRow ="hidden";
-						break;
-					case 'C':
-						//Other Prices
-						console.log ("Broadband Price grid");
-						csv="../getData.php?tbl=data/p1_UK_BroadbandPrices.csv";
-						grid="BroadbandType";
-						displayRow ="hidden";
-						break;
-					case 'D':
-						//Other Prices
-						console.log ("Talk Price grid");
-						csv="../getData.php?tbl=data/p1_UK_TalkPrices.csv";
-						grid="TalkType";
-						displayRow ="hidden";
-						break;
-					case 'E':
-						//Other Prices
-						console.log ("Equipment Price grid");
-						csv="../getData.php?tbl=data/p1_UK_AdditionalPrices.csv";
-						grid="EquipBoxType";
-						displayRow ="hidden";
-						break;
-					case 'F':
-						//AdditionalPrices
-						console.log ("Other Price grid");
-						csv="../getData.php?tbl=data/p1_UK_EntPrices";
-						grid="AdditionalType";
-						displayRow ="hidden";
-						break;
-				}
-				
-				
 			
-			}*/
 			connection();
 			function connection()
 			{
@@ -553,15 +450,6 @@ basket.require
 
 				//reset help text
 				helpText();
-
-				//update prices
-				/*getGrid('A'); //Box Type
-				getGrid('B'); //Al a Carte
-				getGrid('C'); //Broadband
-				getGrid('D'); //Talk
-				getGrid('E'); //SkyQ Boxes
-				getGrid('F'); //Multiroom etc.
-				*/
 			});
 
 
