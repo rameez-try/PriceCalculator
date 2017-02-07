@@ -145,7 +145,7 @@ basket.require
 			
 				promise.done(function(data)
 				{
-					var pack = null;
+					/*var pack = null;
 					var basic = 0;
 					var cinema = 0;
 					var SandC = 0;
@@ -164,6 +164,50 @@ basket.require
 							//it then calls the populateGrid function passing these variables as parameters. 
 							populateGrid(pack, basic, cinema, SandC, sport);
 							
+						});
+					} */
+					
+					if (csv == "../getData.php?tbl=data/p1_UK_EntPrices") 
+					{
+						$.each(data, function(i, item)
+						{
+							var pack = item[5];
+							var basic = item[6];
+							var cinema = item[7];
+							var SandC = item[8];
+							var sport = item[9];
+							
+							populateGrid(pack, basic, cinema, SandC, sport);
+						});
+					}
+
+					if (csv == "../getData.php?tbl=data/p1_data/P1/UK_BroadbandPrices")
+					{
+	
+						$.each(data, function(i, item)
+						{
+							var broadpack = item[7];
+							var broadregion = item[5];
+							var broadcond = item[8];
+							var broadprice = item[9];
+							var broadother = item[2];
+							
+							populateGrid(broadpack, broadregion, broadcond, broadprice);
+						});
+					}
+
+					if (csv == "../getData.php?tbl=data/p1_UK_TalkPrices")
+					{
+	
+						$.each(data, function(i, item)
+						{
+							var talkpack = item[7];
+							var talkregion = item[5];
+							var talkcond = item[8];
+							var talkprice = item[9];
+							var broadother = item[2];
+							
+							populateGrid(talkpack, talkregion, talkcond, talkprice);
 						});
 					}
 				});
@@ -200,9 +244,11 @@ basket.require
 			if(csv == "../getData.php?tbl=data/p1_UK_TalkPrices") {
 				tblName="TalkType1_PriceGrid";
 				}
-			else {
+			
+			/*else {
 				tblName = "BoxType1_PriceGrid";
 				}
+				*/
 			
 			
 			var npack = pack;

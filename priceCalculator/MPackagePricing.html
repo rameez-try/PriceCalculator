@@ -419,11 +419,6 @@
 														</tr>
 													</tbody>
 												</table>
-
-													<!-- 	BB:  Broadband Add Subscription  -->
-												<!--div class="small-4 small-centered columns">
-													<input id="BroadbandButton" type="button" value="Add Subscription" class="button tiny addSub radius">
-												</div> -->
 											</div>
 
 										<!-- 	BB:  Broadband Bought Subscriptions Grid -->
@@ -479,8 +474,34 @@
 														<!-- Populated from [region]_TalkPrices.csv -->
 													</tbody>
 												</table>
+												
+												<table id="TalkType_Discount" class="tableFirst selectHack">
+													<thead>
+														<tr>
+															<th class="tableTopTh" width="50%" class="BoxTypeDiscount_col1">Discount for..</th>
+															<th class="tableTopTh" width="10%" class="BoxTypeDiscount_col2">Amount</th>
+															<th class="tableTopTh" width="10%">Type</th>
+															<th class="tableTopTh"></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="text" placeholder="Reason for Discount"/></td>
+															<td><input type="number" class="amountinput" placeholder="0" /></td>
+															<td>
+																<select type="select" name="DiscountType" size="1">
+																	<option value="1" selected>%</option>
+																	<option value="2"><span class="pound">&pound;</span> / <span class="euro">&euro;</span></option>
+																</select>
+															</td>
+															<td><p class="editRow addRow"><i title="Add" class="fa icon-plus tableIcon "></i></p></td>
+														</tr>
+													</tbody>
+												</table>
+												
+												
 
-												<!-- TK: Other Subscriptions Discount Grid -->
+												<!-- TK: Other Subscriptions Discount Grid 
 												<table id="TalkType_Discount" class="tableFirst selectHack">
 													<thead>
 														<tr>
@@ -505,10 +526,10 @@
 													</tbody>
 												</table>
 
-												<!-- TK: Add Talk Subscription -->
+												<!-- TK: Add Talk Subscription 
 												<div class="small-4 small-centered columns">
 													<input id="TalkButton" type="button" value="Add Subscription" class="button tiny addSub radius">
-												</div>
+												</div> -->
 											</div>
 
 											<!-- TK: Talk Bought Subscriptions Grid -->
