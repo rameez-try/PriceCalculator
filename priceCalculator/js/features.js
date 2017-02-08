@@ -199,13 +199,11 @@ basket.require
 	
 						$.each(data, function(i, item)
 						{
-							var talkpack = item[7];
-							var talkregion = item[5];
-							var talkcond = item[8];
-							var talkprice = item[9];
-							var broadother = item[2];
+							var talkpack = item[5];
+							var talkcond = item[6];
+							var talkprice = item[7];
 							
-							populateGrid(talkpack, talkregion, talkcond, talkprice);
+							populateGridTalk(talkpack, talkcond, talkprice);
 						});
 					}
 				});
@@ -346,9 +344,105 @@ basket.require
 			
 		}
 		
+		function populateGridTalk(pack, basic, cinema)
+		{
+			var tableRow = 0;
+			var tblName = "";
+			var GridType = 1;
+			var rowcount = 0;
+			var row = new String("");
+			var grid = "BoxType";
+			var displayRow = "show";
+			var cell = 0;
+			//This takes the table which is made in the .html file and populates it by adding to the table rows. 
+			//There are different tables made in the .html file and this chooses the correct one based on the csv passed as the url. 
+			//The reason for this is the csv is set based on what data is needed and that corresponds to which table needs to be populated too.
+			//e.g. we may have to populate the broadband prices grid 
+			row += "<tr id='"+grid+"_TRow"+rowcount+"' class='"+displayRow+"'>";
+			tblName = "TalkType1_PriceGrid";
+			
+			var npack = pack;
+			var nbasic = basic;
+			var ncinema = cinema;
+			var disc = 0;
+			//These are the variables that will be manipulated for discount 
+			
+			
+			if (discount !== 0)
+			{
+				disc = discount;
+			}
+			
+			if (discountType !== null)
+			{
+				if (discountType == "percent")
+				{
+				//this is based on what has been selected in the discount gird, so in this case it is a percentage discount for basic only.
+					if(option == "C0")
+					{
+						nbasic = (basic - (basic*disc)).toFixed(2);
+						console.log(nbasic);
+					}
+					//percentage cinema only 
+					if(option == "C4")
+					{
+						ncinema = (cinema - (cinema*disc)).toFixed(2);
+						console.log(ncinema);
+					}
+					//percentage all
+					if(option == "CX")
+					{
+						nbasic = (basic - (basic*disc)).toFixed(2);
+						ncinema = (cinema - (cinema*disc)).toFixed(2);
+					}
+						
+					
+				}
+			
+				//This is the same however this time the percetnage selected is a monetary discount rather than a percentage discount.
+				if (discountType == "number")
+				{
+					if(option == "C0")
+					{
+						nbasic = (basic - disc).toFixed(2);
+						console.log(nbasic);
+					}
+					
+					if(option == "C4")
+					{
+						ncinema = (cinema - disc).toFixed(2);
+						console.log(ncinema);
+					}
+					
+					if(option == "CX")
+					{
+						nbasic = (basic - disc).toFixed(2);
+						ncinema = (cinema - disc).toFixed(2);
+					}
+				
+				}
+			}
+			
+			
+			
+		//adding these variables to the rows in the table
+			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price'>" + pack +"</span><span class='originalprice hidden'></span></td>";
+			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+"'>" + nbasic; +"</span><span class='originalprice hidden'></span></td>";
+			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+curr+"'>" + ncinema; +"</span><span class='originalprice hidden'></span></td>";
+	
+			row += "</tr>";
+			
+
+			//increment ID counter
+			rowcount++;
+
+			//Add row to table
+			$('#'+tblName+' tbody').append(row);
+			
+		}
+		
 		function populateGridBroadband(pack, basic, cinema)
 		{
-			console.log("in broadband populate grid");
 			var tableRow = 0;
 			var tblName = "";
 			var GridType = 1;
@@ -430,7 +524,7 @@ basket.require
 			
 		//adding these variables to the rows in the table
 			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price'>" + pack +"</span><span class='originalprice hidden'></span></td>";
-			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+curr+"'>" + nbasic; +"</span><span class='originalprice hidden'></span></td>";
+			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+"'>" + nbasic; +"</span><span class='originalprice hidden'></span></td>";
 			row+= "<td class='"+grid+"cell C"+cell+" highlight'><span class='price "+curr+"'>" + ncinema; +"</span><span class='originalprice hidden'></span></td>";
 	
 			row += "</tr>";
@@ -443,6 +537,7 @@ basket.require
 			$('#'+tblName+' tbody').append(row);
 			
 		}
+		
 		function populateGrid(pack, basic, cinema, SandC, sport) 
 		{
 			var tableRow = 0;
