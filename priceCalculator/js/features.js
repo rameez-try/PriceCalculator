@@ -180,28 +180,23 @@ basket.require
 
 					if (csv == "../getData.php?tbl=data/p1_data/P1/UK_BroadbandPrices")
 					{
-	
-						$.each(data, function(i, item)
-						{
-							var broadpack = item[5];
-							var broadregion = item[6];
-							var broadcond = item[7];
-							
-							populateGridBroadband(broadpack, broadregion, broadcond);
-						});
+						var broadArr = data[0];
+						var broadpack = broadArr[5];
+						var broadregion = broadArr[6];
+						var broadcond = broadArr[7];
+						populateGridBroadband(broadpack, broadregion, broadcond);
+						
 					}
 
 					if (csv == "../getData.php?tbl=data/p1_UK_TalkPrices")
-					{
+					{	
+						var talkarr = data[0];
+						console.log(talkarr);
+						var talkpack = talkarr[5];
+						var talkcond = talkarr[6];
+						var talkprice = talkarr[7];
+						populateGridTalk(talkpack, talkcond, talkprice);
 	
-						$.each(data, function(i, item)
-						{
-							var talkpack = item[5];
-							var talkcond = item[6];
-							var talkprice = item[7];
-							
-							populateGridTalk(talkpack, talkcond, talkprice);
-						});
 					}
 				});
 
