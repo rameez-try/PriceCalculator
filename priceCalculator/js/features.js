@@ -145,18 +145,37 @@ basket.require
 			
 				promise.done(function(data)
 				{
-					if (csv == "../getData.php?tbl=data/p1_UK_EntPrices") 
+					
+					if (csv == "../getData.php?tbl=data/p1_UK_EntPrices")
 					{
-						$.each(data, function(i, item)
-						{
-							var pack = item[5];
-							var basic = item[6];
-							var cinema = item[7];
-							var SandC = item[8];
-							var sport = item[9];
-							
-							populateGridTV(pack, basic, cinema, SandC, sport);
-						});
+						var arr = data[0];
+						var pack = arr[5];
+						var basic = arr[6];
+						var cinema = arr[7];
+						var SandC = arr[8];
+						var sport = arr[9];
+						populateGridTV(pack, basic, cinema, SandC, sport);
+						var arr1 = data[1];
+						var pack1 = arr1[5];
+						var basic1 = arr1[6];
+						var cinema1 = arr1[7];
+						var SandC1 = arr1[8];
+						var sport1 = arr1[9];
+						populateGridTV(pack1, basic1, cinema1, SandC1, sport1);
+						var arr2 = data[2];
+						var pack2 = arr2[5];
+						var basic2 = arr2[6];
+						var cinema2 = arr2[7];
+						var SandC2 = arr2[8];
+						var sport2 = arr2[9];
+						populateGridTV(pack2, basic2, cinema2, SandC2, sport2);
+						var arr3 = data[3];
+						var pack3 = arr3[5];
+						var basic3 = arr3[6];
+						var cinema3 = arr3[7];
+						var SandC3 = arr3[8];
+						var sport3 = arr3[9];
+						populateGridTV(pack3, basic3, cinema3, SandC3, sport3);
 					}
 
 					if (csv == "../getData.php?tbl=data/p1_data/P1/UK_BroadbandPrices")
