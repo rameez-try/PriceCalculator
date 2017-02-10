@@ -22,6 +22,7 @@ basket.require
 	window.discountType = null;
 	window.option = null;
 	window.csv = "../getData.php?tbl=data/p1_UK_EntPrices";
+	window.tab = "";
 	
 
 			function getUrlPriceRange()
@@ -89,7 +90,28 @@ basket.require
 				window.location.reload();
 				console.log ("Reset calculations");
 			});
-
+			
+			$("#Sky Q Boxes").click(function()
+			{
+				tab = "Sky Q Boxes";
+			});
+			
+			$("#Sky TV Boxes").click(function()
+			{
+				tab = "Sky TV Boxes";
+			});
+			
+			$("#Sky TV Boxes - Legacy").click(function()
+			{
+				tab = "Legacy";
+			});
+			
+			$("#SkyFibre").click(function()
+			{
+				console.log("sky fibre tab");
+				tab = "Fibre";
+			});
+				
     
 			//Currency Type
 			var Rgn ="";
